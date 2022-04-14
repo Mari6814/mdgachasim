@@ -1,11 +1,9 @@
 # Introduction
 
 This is a simulator for sampling the cost distribution of *Yu-Gi-Oh! Master Duel* packs.
-It implements almost all secret packs, courtesy of [yugipedia](https://yugipedia.com), who had an easy to
-copy and transform format for the cardlists. But currently there does not seem to exist a full list
-of cards available in master and legacy packs, which means that many very important cards are not built in.
-Though they can be added very easily by yourself. Also their list of secret packs was neither complete, nor
-did every secret pack contain every card actually in them.
+It implements all cards, bundles, selection packs, crafting, pity, pack unlocking
+and all secret packs, courtesy of [yugipedia](https://yugipedia.com).
+
 
 # How to use
 
