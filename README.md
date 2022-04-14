@@ -12,7 +12,9 @@ and all secret packs. Most pack content data was copied from [yugipedia](https:/
 
 # How to use
 
-This package has a web app frontend available at: https://master-duel-cost-calculator.web.app/
+This package has a web app frontend available at:
+
+https://master-duel-cost-calculator.web.app/
 
 Download the package and run without installing or install with pip using the github protocol.
 This package is not uploaded to pip and you have to install it using `pip install git+https://github.com/Mari6814/mdgachasim.git`.
