@@ -1,8 +1,13 @@
 # Introduction
 
+Want to know how much a deck will cost you or wondered if buying the gem bundles for real money
+would bring you closer to being able to play the most recent meta decks in the game *Yu-Gi-Oh! Master Duel*?
+Then you can use this package to do exactly that.
+
+
 This is a simulator for sampling the cost distribution of *Yu-Gi-Oh! Master Duel* packs.
 It implements all cards, bundles, selection packs, crafting, pity, pack unlocking
-and all secret packs, courtesy of [yugipedia](https://yugipedia.com).
+and all secret packs. Most pack content data was copied from [yugipedia](https://yugipedia.com).
 
 
 # How to use
