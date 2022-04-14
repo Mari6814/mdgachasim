@@ -12,7 +12,7 @@ did every secret pack contain every card actually in them.
 Sadly, this is for now only usable if you know at least some stuff about python.
 
 Download the package and run without installing or install with pip using the github protocol.
-This package is not uploaded to pip and you have to install it using `pip install git+https//:[this repo url]`.
+This package is not uploaded to pip and you have to install it using `pip install git+https://github.com/Mari6814/mdgachasim.git`.
 
 ### Verbalising the problem
 
@@ -86,10 +86,10 @@ costs = [
     for _ in range(100)
 ]
 
-# Just print some interesting values
+# Print the average cost
 print("Average cost: ", sum(costs) / len(costs), "gems")
 
-# Show histograms
+# Show histograms (requires matplotlib installed)
 from matplotlib import pyplot
 
 pyplot.hist(costs, density=True, cumulative=True)
