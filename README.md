@@ -7,8 +7,6 @@ and all secret packs, courtesy of [yugipedia](https://yugipedia.com).
 
 # How to use
 
-Sadly, this is for now only usable if you know at least some stuff about python.
-
 Download the package and run without installing or install with pip using the github protocol.
 This package is not uploaded to pip and you have to install it using `pip install git+https://github.com/Mari6814/mdgachasim.git`.
 
