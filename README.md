@@ -15,7 +15,7 @@ This package is not uploaded to pip and you have to install it using `pip instal
 In order to run a simulation, you have to verbalise the problem first.  For a
 gacha simulator, the problem is a list of cards you still need.  All card
 specifications are accessible directly via the singleton instance `db` of type
-`Database` in the package `mdgachasim.data`.  The database's singleton has the
+`Database` in the module `mdgachasim.data`.  The database's singleton has the
 member `cards` which is a dictionary, mapping the exact card name to an instance
 of `mdgachasim.card.Card`.
 
@@ -36,7 +36,7 @@ goals = [
 ]
 ```
 
-Since this is very tedious, you can use the utility function `string_to_decklist` in the package `mdgachasim.util`.
+Since this is very tedious, you can use the utility function `string_to_decklist` in the module `mdgachasim.util`.
 Be careful as it tries to repair any writing mistakes. It doesn't only return the decklist, but also a dictionary
 of automatically derived card name translations, which is only for your information and can be ignored.
 
@@ -56,7 +56,7 @@ and the correct card will be found automatically.
 
 ### Sampling the cost distribution
 
-The `mdgachasim.simulator` package contains the `simulation` function which does the actual sampling.
+The `mdgachasim.simulator` module contains the `simulation` function which does the actual sampling.
 It takes a list of goals (= cards) as input among many other parameters. But watch out, besides the sampled cost,
 the `simulation` function also returns the materials per rarity used to craft the all leftover cards at the end.
 
