@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "mdgachasim"
-version = "1.0.3"
+version = "1.0.4"
 description = "A simulator that computes gem cost distributions of Yu-Gi-Oh! Master Duel packs"
-authors = ["ffsauta <ffsauta@gmail.com>"]
+authors = ["Marian Plivelic <MarianPlivelic@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
