@@ -240,7 +240,10 @@ def simulation(
         return sum(
             rarity_prob[card.rarity]
             * rarity_weight.get(card.rarity, 1)
-            / source_pack.totals[card.rarity]
+            # Divide by the number of cards in the pack of that rarity.
+            # In case there are no cards of that rarity (because of missing info in the dataset),
+            # assume there are at least 4 cards of that rarity.
+            / source_pack.totals.get(card.rarity, 4)
             for card in cards_per_source[source_pack]
         )
 
@@ -262,7 +265,7 @@ def simulation(
                 if not _remove_card_from_goals(
                     featured, goals, cards_per_source, log=log
                 ):
-                    # Since in the future bundles may contain more than one featured card,
+                    # Since in future bundles may contain more than one featured card,
                     # we have to also remove any other cards from sub goals if possible.
                     if not _remove_card_from_goals(
                         featured, sub_goals, None, log=log, is_sub_goal=True
@@ -276,12 +279,16 @@ def simulation(
         elif not cards_per_source:
             # If all cards from sets are picked, go into master pack
             # and try to randomly obtain an unobtainable card
+            # while also accumulating materials for crafting.
             source = db.master_pack
             cost += 1000
             if log:
                 log.info('Pulling from "%s" for %i gems', source.name, 1000)
         else:
             # Get most valuable set
+            if log:
+                for source in cards_per_source:
+                    log.info("Expected return for %s: %f", source.name, expected_return(source))
             source = max(cards_per_source, key=expected_return)
             # Before pulling, handle unlocking and crafting here
             if not source.is_normal_pack and source not in packs_unlocked:

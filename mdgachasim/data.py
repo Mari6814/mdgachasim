@@ -19,13 +19,24 @@ class BundleModel(BaseModel):
 
 
 class DatabaseModel(BaseModel):
+    # List of registered bundles
     bundles: List[BundleModel]
+    # Dictionary of cards and their gifted quantity
     gifts: Dict[str, int]
+    # Dictionary of secret and selection packs
+    # with all cards contained in each pack
     packs: Dict[str, Set[str]]
+    # Dictionary of a card's name and its rarity
     rarities: Dict[str, Rarity]
+    # Set of staple cards
     staples: Set[str]
+    # Set of the names of all selection packs
     selection_packs: Set[str]
+    # Set of cards contained in the master pack.
     master_pack: Set[str]
+    # Force total count per rarity for
+    # pack with an unknown amount of cards
+    force_set_totals: Dict[str, Dict[Rarity, int]]
 
     class Config:
         use_enum_values = True
@@ -56,6 +67,16 @@ class Database:
             )
             for name, cards_in_pack in model.packs.items()
         }
+        for pack_name, forced_counts in model.force_set_totals.items():
+            self.packs[pack_name].totals = {
+                # Keep the old totals
+                **self.packs[pack_name].totals,
+                # Overwrite with the forced counts
+                **{
+                    Rarity(r): q
+                    for r, q in forced_counts.items()
+                }
+            }
         self.sources: Dict[Card, Set[Pack]] = {
             card: set() for card in self.cards.values()
         }
