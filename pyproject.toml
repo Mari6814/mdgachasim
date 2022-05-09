@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mdgachasim"
-version = "1.0.5"
+version = "1.0.6"
 description = "A simulator that computes gem cost distributions of Yu-Gi-Oh! Master Duel packs"
 authors = ["Marian Plivelic <MarianPlivelic@gmail.com>"]
 license = "MIT"
